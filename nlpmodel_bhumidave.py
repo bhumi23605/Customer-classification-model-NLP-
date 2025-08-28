@@ -38,8 +38,8 @@ drive.mount('/gdrive')
 
 '''from google.colab import files
 uploaded = files.upload()'''
-url1="https://huggingface.co/datasets/bhumidad23/nlpmodel_dataset/blob/main/complaints.csv"
-url2="https://huggingface.co/datasets/bhumidad23/nlpmodel_dataset/blob/main/final_dataframe.csv"
+url1="https://huggingface.co/datasets/bhumidad23/nlpmodel_dataset/resolve/main/complaints.csv"
+url2="https://huggingface.co/datasets/bhumidad23/nlpmodel_dataset/resolve/main/final_dataframe.csv"
 df=pd.read_csv(url1, encoding="utf-8", sep=",", on_bad_lines="skip")
 df2=pd.read_csv(url2)
 
