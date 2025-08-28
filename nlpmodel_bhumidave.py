@@ -24,12 +24,12 @@ from sklearn.impute import SimpleImputer
 #!pip install transformers
 #!pip install torch
 #!pip install nltk
-
+'''
 from google.colab import drive
 drive.mount('/content/drive')
 from google.colab import files
 uploaded = files.upload()
-
+'''
 from google.colab import drive
 drive.mount('/content/drive')
 from google.colab import drive
@@ -73,7 +73,7 @@ model = RandomForestClassifier(
     n_jobs=-1,               # use all CPU cores
     random_state=42
 )
-model.fit(x_train_vectorized, y_train)
+#model.fit(x_train_vectorized, y_train)
 
 #train the RfR
 model=RandomForestClassifier()
@@ -124,31 +124,6 @@ test_loader = DataLoader(test_dataset, batch_size=16)
 
 #tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(label_encoder.classes_))
-
-
-
-
-'''
-seq_len = [len(i.split()) for i in x_train] # to understand max length
-#inputs for BERT
-inputs = tokenizer(list(x), return_tensors='pt', padding=True, truncation=True, max_length=128)
-attention_mask = inputs['attention_mask']
-#label-->tensor
-labels_tensor = torch.tensor(y.tolist())
-
-#forward pass
-outputs = model(input_ids=inputs['input_ids'], attention_mask=inputs['attention_mask'], labels=labels_tensor)
-loss = outputs.loss  # Loss for backpropagation
-logits = outputs.logits  # Raw output predictions
-
-inputs_test = tokenizer(x_test.tolist(), return_tensors='pt', padding=True, truncation=True, max_length=128)
-with torch.no_grad():
-    outputs_test = model(input_ids=inputs_test['input_ids'], attention_mask=inputs_test['attention_mask'])
-    predictions = torch.argmax(outputs_test.logits, dim=-1)
-
-# Convert predictions to numpy array for sklearn metrics
-predictions = predictions.numpy()
-'''
 
 import torch
 print(torch.cuda.is_available())  # True means CUDA (GPU) is available
@@ -252,8 +227,8 @@ best_model = {
     "accuracy": accuracy_score(y_test, y_pred),
     "precision": precision_score(y_test, y_pred, average='weighted'),
     "recall": recall_score(y_test, y_pred, average='weighted'),
-    "f1_score": f1_score(y_test, y_pred, average='weighted'),
-    "model_object": rf  # optional: store the trained model itself
+    "f1_score": f1_score(y_test, y_pred, average='weighted')
+    #"model_object": rf  # optional: store the trained model itself
 }
 
 # Check metrics
@@ -261,8 +236,6 @@ print(best_model)
 
 import joblib
 joblib.dump(best_model, 'nlp_bestmodel.pkl')
-
-import joblib
 #!pip install streamlit
 import streamlit as st
 
