@@ -38,8 +38,8 @@ drive.mount('/gdrive')
 
 '''from google.colab import files
 uploaded = files.upload()'''
-filepath=r"C:\Users\Admin\OneDrive\Desktop\BS\general Data science\dsai-nlp\complaints.csv"
-f1=r"C:\Users\Admin\OneDrive\Desktop\BS\general Data science\dsai-nlp\final_dataframe.csv"
+filepath="complaints.csv"
+f1="final_dataframe.csv"
 df=pd.read_csv(filepath)
 df2=pd.read_csv(f1)
 
