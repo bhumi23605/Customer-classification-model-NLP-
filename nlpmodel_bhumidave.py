@@ -24,17 +24,6 @@ from sklearn.impute import SimpleImputer
 #!pip install transformers
 #!pip install torch
 #!pip install nltk
-'''
-from google.colab import drive
-drive.mount('/content/drive')
-from google.colab import files
-uploaded = files.upload()
-
-from google.colab import drive
-drive.mount('/content/drive')
-from google.colab import drive
-drive.mount('/gdrive')
-'''
 
 '''from google.colab import files
 uploaded = files.upload()'''
