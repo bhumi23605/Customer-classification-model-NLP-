@@ -29,12 +29,12 @@ from google.colab import drive
 drive.mount('/content/drive')
 from google.colab import files
 uploaded = files.upload()
-'''
+
 from google.colab import drive
 drive.mount('/content/drive')
 from google.colab import drive
 drive.mount('/gdrive')
-
+'''
 
 '''from google.colab import files
 uploaded = files.upload()'''
