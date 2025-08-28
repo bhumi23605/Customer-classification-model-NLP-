@@ -40,8 +40,8 @@ drive.mount('/gdrive')
 uploaded = files.upload()'''
 url1="https://huggingface.co/datasets/bhumidad23/nlpmodel_dataset/blob/main/complaints.csv"
 url2="https://huggingface.co/datasets/bhumidad23/nlpmodel_dataset/blob/main/final_dataframe.csv"
-df=pd.read_csv(filepath)
-df2=pd.read_csv(f1)
+df=pd.read_csv(url1)
+df2=pd.read_csv(url2)
 
 #Handling missing values
 impute=SimpleImputer(strategy='most_frequent')
